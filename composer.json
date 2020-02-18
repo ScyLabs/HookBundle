@@ -1,7 +1,8 @@
 {
     "name": "scylabs/hook-bundle",
+    "type": "symfony-bundle",
     "description": "Templates and fonctionnal Hooks for symfony",
-    "version" : "1.0.0",
+    "version" : "1.0.1",
     "license": "MIT",
     "authors": [
         {
@@ -9,5 +10,11 @@
             "email": "alexandre.sciacca@gmail.com"
         }
     ],
-    "require": {}
+    "require": {
+    },
+    "autoload": {
+        "psr-4": {
+            "ScyLabs\\HookBundle\\": "./"
+        }
+    }
 }
