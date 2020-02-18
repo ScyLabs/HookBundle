@@ -1,0 +1,13 @@
+{
+    "name": "scylabs/hook-bundle",
+    "description": "Templates and fonctionnal Hooks for symfony",
+    "version" : "1.0.0",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "alex",
+            "email": "alexandre.sciacca@gmail.com"
+        }
+    ],
+    "require": {}
+}

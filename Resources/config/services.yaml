@@ -1,0 +1,24 @@
+services:
+
+    _defaults:
+        autowire: true      # Automatically injects dependencies in your services.
+        autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
+        public: true
+
+    ScyLabs\HookBundle\:
+        resource: '../../*'
+        exclude: '../../{Entity,Migrations,Tests,Kernel.php}'
+
+    ScyLabs\HookBundle\EventListener\LoadHookListener:
+        tags:
+            - { name: kernel.event_listener,event: kernel.controller }
+
+    ScyLabs\HookBundle\DataCollector\HookCollector:
+        tags:
+            -
+                name: data_collector
+                template: '@Hook/data_collector/hook_collector.html.twig'
+                id: 'scy_labs_hooks'
+        public: false
+    ScyLabs\HookBundle\Manager\HookManager:
+        public: true
