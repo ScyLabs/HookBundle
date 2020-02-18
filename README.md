@@ -72,7 +72,14 @@ class MyHook extends AbstractHook
 }
 
 ```
-
+### Last step : Add your Hook directory in the Container
+```yaml
+# config/services.yaml
+services: 
+    App\Hook\:
+        resource: '../src/Hook/*'
+        public: true
+```
 ### I'ts done.
 You can also show any hooks in your controller result in your SymfonyToolbar.
 

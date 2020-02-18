@@ -26,7 +26,6 @@ class HookCollector extends DataCollector
     public function collect(Request $request, Response $response,?\Throwable $exception = null) {
         $data = $request->getSession()->get('scy_labs_hooks');
 
-        dump($data);
         if(null === $data || !is_array($data)){
             $this->data = [];
         }else{
@@ -51,7 +50,7 @@ class HookCollector extends DataCollector
         $this->data = [];
     }
     public function count(){
-        return $this->data->count();
+        return sizeof($this->data);
     }
     public function getHooks(){
         return $this->data;

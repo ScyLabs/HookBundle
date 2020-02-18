@@ -3,7 +3,7 @@
 {% block toolbar %}
     {% set icon %}
         {{ include('@Hook/data_collector/hook_collector_icon.svg') }}
-        <span class="sf-toolbar-value">{{  collector | length }} Hook{{ (collector | length > 1) ? 's' }} - {{ collector.countLinks }} Link{{ (collector.countLinks > 1) ? 's' }}</span>
+        <span class="sf-toolbar-value">{{  collector.count }} Hook{{ (collector.count > 1) ? 's' }} - {{ collector.countLinks }} Link{{ (collector.countLinks > 1) ? 's' }}</span>
     {% endset %}
 
     {% set text %}
