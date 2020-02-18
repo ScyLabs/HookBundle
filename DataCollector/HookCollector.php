@@ -23,14 +23,14 @@ class HookCollector extends DataCollector
      *
      * @param \Throwable|null $exception
      */
-    public function collect(Request $request, Response $response) {
+    public function collect(Request $request, Response $response,?\Throwable $exception = null) {
         $data = $request->getSession()->get('scy_labs_hooks');
 
-
+        dump($data);
         if(null === $data || !is_array($data)){
-            $this->data = new ArrayCollection();
+            $this->data = [];
         }else{
-            $this->data = new ArrayCollection($data);
+            $this->data = $data;
         }
 
         $request->getSession()->remove('scy_labs_hooks');
@@ -48,7 +48,7 @@ class HookCollector extends DataCollector
     }
 
     public function reset() {
-        $this->data = new ArrayCollection();
+        $this->data = [];
     }
     public function count(){
         return $this->data->count();
