@@ -4,7 +4,7 @@ Dynamic templating hook system for symfony.
 
 ## Installation
 
-For install this package, use  [composer](https://getcomposer.org/) .
+To install this package, use  [composer](https://getcomposer.org/) .
 
 ```bash
 composer require scylabs/hook-bundle
@@ -12,7 +12,7 @@ composer require scylabs/hook-bundle
 
 ## Usage
 
-The operation is very simple. First, you need to create entry points in your templates, then connect PHP classes to these entry points. <br/>
+The operation is very simple. First, you need to create entry points in your template, then connect PHP classes to these entry points. <br/>
 I will explain in detail.
 
 ### Create an entry point to connect hooks in twig
@@ -23,9 +23,10 @@ The extension function has two parameters.
 public function showHook(string $template,string $hookName)
 ```
 The first parameter is the target template NameSpace. Ex : layout.html.twig<br/>
-The second parameter is the hook name and it is used for connect PHP classes in this door.
+The second parameter is the hook name and it is used to connect PHP classes in this door.
 <br/><br>
-You can send _self in first parameter. _self is a actual template NameSpace
+You can send _self in first parameter. _self is the current template NameSpace <br/>
+It is important to add "raw" filter to interprete Hook's html.
 ```twig
 {{ showHook(_self,'my_custom_hook')) | raw }}
 
@@ -33,13 +34,13 @@ You can send _self in first parameter. _self is a actual template NameSpace
 
 ### You don't use twig ? 
 If you don't use twig , you can tell directly HooksFounder Service.<br/>
-It works exactly like the extension, except that it directly returns an array of instantiated hooks objects instead of hooks contents.
+It works exactly like the extension, except that it directly returns an array of instantiated Hooks objects instead of hooks contents.
 
-### Connect Hooks in entry point.
+### Connect Hooks to an  entry point (door).
 You can create an infinity of doors and an infinity of hooks to connect this doors.
 <br/>
-For connect one hook in one door , you need to create a PHP class that extends AbstractHook class<br/>
-I'ts the minimal code for connect one hook in a door. PS : You can connect one hook to many doors.
+To connect a hook to one door , you need to create a PHP class that extends AbstractHook class<br/>
+I'ts the minimal code to connect a hook to a door. PS : You can connect one hook to many doors.
 
 ```php
 <?php
@@ -72,7 +73,7 @@ class MyHook extends AbstractHook
 }
 
 ```
-### Last step : Add your Hook directory in the Container
+### Last step : Add your Hook directory to the Container
 ```yaml
 # config/services.yaml
 services: 

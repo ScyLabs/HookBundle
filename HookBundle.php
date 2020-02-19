@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: alex
- * Date: 18/02/2020
- * Time: 12:06
- */
 
 namespace ScyLabs\HookBundle;
 

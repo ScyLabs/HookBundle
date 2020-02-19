@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: alex
- * Date: 20/11/2019
- * Time: 16:56
- */
 
 namespace ScyLabs\HookBundle\Twig;
 

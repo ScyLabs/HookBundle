@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: alex
- * Date: 17/01/2020
- * Time: 11:56
- */
 
 namespace ScyLabs\HookBundle\DependencyInjection;
 
