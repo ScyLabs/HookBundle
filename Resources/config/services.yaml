@@ -12,7 +12,13 @@ services:
     ScyLabs\HookBundle\EventListener\LoadHookListener:
         tags:
             - { name: kernel.event_listener,event: kernel.controller }
+        calls:
+            - [ setContainer, [ '@service_container']]
 
+    ScyLabs\HookBundle\Services\HooksFounder:
+        calls:
+            - [ setContainer, [ '@service_container']]
+            
     ScyLabs\HookBundle\DataCollector\HookCollector:
         tags:
             -

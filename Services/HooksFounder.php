@@ -5,15 +5,13 @@ namespace ScyLabs\HookBundle\Services;
 
 use ScyLabs\HookBundle\Manager\HookManager;
 use ScyLabs\HookBundle\Model\HooksFounderInterface;
+use Symfony\Component\DependencyInjection\ContainerAwareInterface;
+use Symfony\Component\DependencyInjection\ContainerAwareTrait;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
-class HooksFounder implements HooksFounderInterface
+class HooksFounder implements HooksFounderInterface,ContainerAwareInterface
 {
-    private $container;
-
-    public function __construct(ContainerInterface $container) {
-        $this->container = $container;
-    }
+    use ContainerAwareTrait;
 
     public function getHooks(string $template,string $hookName) : array{
 

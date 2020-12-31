@@ -5,11 +5,14 @@ namespace ScyLabs\HookBundle\Model;
 
 use ScyLabs\HookBundle\Model\HookInterface;
 use Symfony\Bundle\TwigBundle\TwigEngine;
+use Symfony\Component\DependencyInjection\ContainerAwareInterface;
+use Symfony\Component\DependencyInjection\ContainerAwareTrait;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
-abstract class AbstractHook implements HookInterface
+abstract class AbstractHook implements HookInterface, ContainerAwareInterface
 {
-    private $container;
+    use ContainerAwareTrait;
+    
     private $templating;
 
     public function __construct(ContainerInterface $container) {

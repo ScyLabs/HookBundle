@@ -8,16 +8,18 @@ use ScyLabs\GiftCodeBundle\Hook\ProfileBoxesHook;
 use ScyLabs\HookBundle\Manager\HookManager;
 use ScyLabs\HookBundle\Model\AbstractHook;
 use ScyLabs\HookBundle\Model\HookInterface;
+use Symfony\Component\DependencyInjection\ContainerAwareInterface;
+use Symfony\Component\DependencyInjection\ContainerAwareTrait;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\DependencyInjection\Definition;
 use Symfony\Component\HttpKernel\Event\ControllerEvent;
 
-class LoadHookListener
+class LoadHookListener implements ContainerAwareInterface
 {
-    private $container;
+    use ContainerAwareTrait;
+    
     private $hookManager;
-    public function __construct(HookManager $hookManager,ContainerInterface $container) {
-        $this->container = $container;
+    public function __construct(HookManager $hookManager) {
         $this->hookManager = $hookManager;
     }
 
