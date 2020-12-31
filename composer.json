@@ -2,7 +2,7 @@
     "name": "scylabs/hook-bundle",
     "type": "symfony-bundle",
     "description": "Templates and fonctionnal Hooks for symfony",
-    "version" : "1.0.5",
+    "version" : "1.0.6",
     "license": "MIT",
     "authors": [
         {
